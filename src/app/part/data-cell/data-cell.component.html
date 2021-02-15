@@ -1,0 +1,26 @@
+<span [ngSwitch]="col.type">
+  <span *ngSwitchCase="'plain'">
+    {{ row[col.key] }}
+  </span>
+  <mat-form-field    *ngSwitchCase="'select'">
+    <mat-select
+      class="form-control black-select"
+      [(ngModel)]="row[col.key]"
+   
+    >      <mat-option *ngFor="let option of col.options" [value]="option.value+''"><!-- a megjelenítés nem működik,talán mat-form?-->
+      {{ option.text }}
+    </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field   *ngSwitchDefault>
+    <input matInput
+    
+      [type]="col.text"
+      [(ngModel)]="row[col.key]"
+      class="form-control"
+    />
+  </mat-form-field>
+</span>
+
+

@@ -1,0 +1,53 @@
+<h2>Statictics of Fueling</h2>
+<div class="row">
+  <div class="col-6">
+    <div class="home-box">
+      <h3>Fuelings By Vehicle</h3>
+      <google-chart *ngIf="vehicleChart" [data]="vehicleChart"> </google-chart>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="home-box">
+      <h3>Fuelings By Driver</h3>
+      <google-chart *ngIf="driverChart" [data]="driverChart"> </google-chart>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="home-box">
+      <h3>Fuelings By Day</h3>
+      <google-chart *ngIf="dateChart" [data]="dateChart"> </google-chart>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="home-box">
+      <h3>Fuelings By Fuel</h3>
+      <google-chart *ngIf="fuelChart" [data]="fuelChart"> </google-chart>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="home-box">
+      <h3>Fuelings By Day</h3>
+      <google-chart *ngIf="dayChart" [data]="dayChart"> </google-chart>
+    </div>
+  </div>
+</div>
+
+
+<form [formGroup]="formGroup">
+  <mat-form-field  >
+    <input matInput   formControlName="name" />
+    <mat-error *ngFor="let validation of error_messages.name">
+      <mat-error *ngIf="formGroup.get('name').hasError(validation.type) && (formGroup.get('name').dirty || formGroup.get('name').touched)">
+        {{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field  >
+    <input matInput  formControlName="email"  />
+    <mat-error *ngFor="let validation of error_messages.email">
+      <mat-error *ngIf="formGroup.get('email').hasError(validation.type) && (formGroup.get('email').dirty || formGroup.get('email').touched)">
+        {{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+</form>

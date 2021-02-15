@@ -1,0 +1,106 @@
+<div class="row top-row">
+  <div class="col-3">
+    <select [(ngModel)]="phraseKey" class="form-control">
+      <option value="notset">find all</option>
+      <option *ngFor="let col of cols" [value]="col.key">
+        {{ col.text }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-9">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="fa fa-filter" aria-hidden="true"></i>
+        </span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="filter"
+        [(ngModel)]="phraseString"
+      />
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>{{ cols[0]?.text }}</th>
+      <th>{{ cols[1]?.text }}</th>
+      <th>{{ cols[2]?.text }}</th>
+      <th>{{ cols[3]?.text }}</th>
+      <th>{{ cols[4]?.text }}</th>
+      <th>{{ cols[5]?.text }}</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td *ngFor="let col of cols">
+        <app-data-cell [row]="newRow" [col]="col"></app-data-cell>
+      </td>
+      <td>
+        <div class="btn-group">
+          <button class="btn btn-success" (click)="onCreate(newRow)">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+    <tr *ngFor="let row of oldList | objectArray: phraseString:phraseKey">
+      <td *ngFor="let col of cols">
+        <app-data-cell [row]="row" [col]="col"></app-data-cell>
+      </td>
+      <td>
+        <div class="btn-group">
+          <button class="btn btn-info" (click)="onUpdate(row)">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn btn-danger" (click)="onDelete(row)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<mat-form-field class="filter">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+<table mat-table [dataSource]="datasource" class="material-table"><!-- ???? -->
+  <div  *ngFor="let col of cols">
+    <ng-container [matColumnDef]="col?.text">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{col?.text}} </th>
+      <td mat-cell *matCellDef="let element">  <app-data-cell [row]="element" [col]="col"></app-data-cell> </td>
+    </ng-container>
+  </div>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action </th>
+    <td mat-cell *matCellDef="let element">
+      <div *ngIf="element===newRow">
+        <button mat-mini-fab color="accent" (click)="onCreate(newRow)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+     
+      <div  *ngIf="element!==newRow" class="button-container">
+        <button mat-mini-fab color="primary"(click)="onUpdate(element)" >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn"(click)="onDelete(element)" >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>  
+    </td>
+  </ng-container>
+
+ 
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr><!-- A fejléc sorát állítjuk be -->
+  <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[2,5, 10, 25, 100]"></mat-paginator>

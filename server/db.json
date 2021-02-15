@@ -1,0 +1,85 @@
+{
+  "drivers": [
+    {
+      "id": 2,
+      "name": "Jack Idol",
+      "email": "idol@gmail.com",
+      "phone": 123456789,
+      "city": "bp",
+      "address": "Rabbi str.55."
+    },
+    {
+      "id": 3,
+      "name": "Charlie Filpo",
+      "email": "cf@gmail.com",
+      "phone": "999999998",
+      "city": "la",
+      "address": "Ulica.55."
+    },
+    {
+      "name": "Pistike Kiss",
+      "email": "pistike34@gmail.com",
+      "phone": "9034256716",
+      "city": "szeged",
+      "address": "Fürj.76.",
+      "id": 4
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "lp": "GOD-258",
+      "year": 2015,
+      "manufacturer": "VW",
+      "engine": "diesel",
+      "comsumption": 10
+    },
+    {
+      "lp": "PIK-733",
+      "year": 2009,
+      "manufacturer": "Mazda",
+      "engine": "benzin",
+      "id": 2,
+      "comsumption": 12
+    },
+    {
+      "manufacturer": "Honda",
+      "comsumption": 8,
+      "engine": "benzin",
+      "year": "2014",
+      "lp": "TIF-448",
+      "id": 3
+    },
+    {
+      "lp": "UHT-788",
+      "year": "2006",
+      "comsumption": 13,
+      "manufacturer": "FIAT",
+      "engine": "diesel",
+      "id": 4
+    }
+  ],
+  "fuelings": [
+    {
+      "id": 2,
+      "vehicleId": "2",
+      "driverId": "2",
+      "amount": 40,
+      "date": "2020-04-02"
+    },
+    {
+      "vehicleId": "3",
+      "driverId": "3",
+      "amount": 50,
+      "date": "2020-10-01",
+      "id": 4
+    },
+    {
+      "vehicleId": "4",
+      "driverId": "2",
+      "amount": 60,
+      "date": "2020-10-13",
+      "id": 5
+    }
+  ]
+}

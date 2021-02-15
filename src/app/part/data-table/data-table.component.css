@@ -1,0 +1,30 @@
+.top-row {
+  margin-top: 15px;
+}
+.mat-raised-button {
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  max-width: 20px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+.mat-mini-fab-button {
+  max-width: 20px;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.filter {
+  width: 100%;
+  background: #00000061;
+}
+.material-table {
+  width: 100%;
+}

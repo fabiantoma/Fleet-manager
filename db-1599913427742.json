@@ -1,0 +1,47 @@
+{
+  "drivers": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@gmail.com",
+      "phone": 123456789,
+      "city": "la",
+      "address": "My address"
+    },
+    {
+      "id": 2,
+      "name": "Jack Idol",
+      "email": "idol@gmail.com",
+      "phone": 123456789,
+      "city": "bp",
+      "address": "Rabbi str.55."
+    },
+    {
+      "id": 3,
+      "name": "Charlie Filpo",
+      "email": "cf@gmail.com",
+      "phone": 999999999,
+      "city": "la",
+      "address": "Ulica.55."
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "lp": "GOD-258",
+      "year": 2015,
+      "manufacturer": "VW",
+      "consumption": 7,
+      "engine": "diesel"
+    }
+  ],
+  "fuelings": [
+    {
+      "id": 1,
+      "vehicle": 1,
+      "driver": 1,
+      "amount": 40,
+      "data": "2020-04-02"
+    }
+  ]
+}
