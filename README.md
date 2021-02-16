@@ -1,5 +1,7 @@
 # FleetManager
 
+This project a angular app with CRUD options.It can create,read,update,delete drivers,cars,fuelings data,and it displays all data in charts.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
 ## Development server
